@@ -1,20 +1,1074 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Crowd Attendance by Team per Round",
-  "data": {"url": "data/matches_2024.csv"},
-  "transform": [
-    {
-      "fold": ["home_team", "away_team"],
-      "as": ["home_away", "team"]
-    },
-    {
-      "filter": "datum.round <= 12"
-    },
-    {
-      "aggregate": [{"op": "mean", "field": "crowd", "as": "avg_crowd"}],
-      "groupby": ["team", "round"]
-    }
-  ],
+  "data": {
+    "values": [
+      {
+        "team": "Melbourne",
+        "round": 1,
+        "avg_crowd": 85000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 1,
+        "avg_crowd": 85000
+      },
+      {
+        "team": "Collingwood",
+        "round": 1,
+        "avg_crowd": 91000
+      },
+      {
+        "team": "Carlton",
+        "round": 1,
+        "avg_crowd": 91000
+      },
+      {
+        "team": "Geelong",
+        "round": 1,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "St Kilda",
+        "round": 1,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 1,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 1,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Sydney",
+        "round": 1,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "GWS",
+        "round": 1,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Fremantle",
+        "round": 1,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Essendon",
+        "round": 1,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 1,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Richmond",
+        "round": 1,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 1,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 1,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Adelaide",
+        "round": 1,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "West Coast",
+        "round": 1,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Carlton",
+        "round": 2,
+        "avg_crowd": 82000
+      },
+      {
+        "team": "Melbourne",
+        "round": 2,
+        "avg_crowd": 82000
+      },
+      {
+        "team": "St Kilda",
+        "round": 2,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Collingwood",
+        "round": 2,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 2,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Geelong",
+        "round": 2,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 2,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 2,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "GWS",
+        "round": 2,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Sydney",
+        "round": 2,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Essendon",
+        "round": 2,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Fremantle",
+        "round": 2,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Richmond",
+        "round": 2,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 2,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 2,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 2,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "West Coast",
+        "round": 2,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Adelaide",
+        "round": 2,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Melbourne",
+        "round": 3,
+        "avg_crowd": 48500
+      },
+      {
+        "team": "GWS",
+        "round": 3,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Collingwood",
+        "round": 3,
+        "avg_crowd": 78000
+      },
+      {
+        "team": "Geelong",
+        "round": 3,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 3,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Fremantle",
+        "round": 3,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Sydney",
+        "round": 3,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 3,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 3,
+        "avg_crowd": 54000
+      },
+      {
+        "team": "Adelaide",
+        "round": 3,
+        "avg_crowd": 54000
+      },
+      {
+        "team": "Essendon",
+        "round": 3,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Carlton",
+        "round": 3,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "St Kilda",
+        "round": 3,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "West Coast",
+        "round": 3,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 3,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Richmond",
+        "round": 3,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 3,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 3,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Carlton",
+        "round": 4,
+        "avg_crowd": 60000
+      },
+      {
+        "team": "Sydney",
+        "round": 4,
+        "avg_crowd": 60000
+      },
+      {
+        "team": "GWS",
+        "round": 4,
+        "avg_crowd": 20000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 4,
+        "avg_crowd": 20000
+      },
+      {
+        "team": "Fremantle",
+        "round": 4,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 4,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Adelaide",
+        "round": 4,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Collingwood",
+        "round": 4,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 4,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Essendon",
+        "round": 4,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "West Coast",
+        "round": 4,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Richmond",
+        "round": 4,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 4,
+        "avg_crowd": 25000
+      },
+      {
+        "team": "St Kilda",
+        "round": 4,
+        "avg_crowd": 25000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 4,
+        "avg_crowd": 15000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 4,
+        "avg_crowd": 15000
+      },
+      {
+        "team": "Melbourne",
+        "round": 4,
+        "avg_crowd": 75000
+      },
+      {
+        "team": "Geelong",
+        "round": 4,
+        "avg_crowd": 75000
+      },
+      {
+        "team": "Sydney",
+        "round": 5,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Melbourne",
+        "round": 5,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 5,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Collingwood",
+        "round": 5,
+        "avg_crowd": 59000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 5,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "GWS",
+        "round": 5,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Geelong",
+        "round": 5,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Fremantle",
+        "round": 5,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Essendon",
+        "round": 5,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Adelaide",
+        "round": 5,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 5,
+        "avg_crowd": 78000
+      },
+      {
+        "team": "Richmond",
+        "round": 5,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 5,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "St Kilda",
+        "round": 5,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Carlton",
+        "round": 5,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "West Coast",
+        "round": 5,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 5,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Melbourne",
+        "round": 6,
+        "avg_crowd": 70000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 6,
+        "avg_crowd": 70000
+      },
+      {
+        "team": "GWS",
+        "round": 6,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Collingwood",
+        "round": 6,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Fremantle",
+        "round": 6,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Sydney",
+        "round": 6,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Adelaide",
+        "round": 6,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Geelong",
+        "round": 6,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 6,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 6,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Carlton",
+        "round": 6,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Essendon",
+        "round": 6,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 6,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Richmond",
+        "round": 6,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 6,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "West Coast",
+        "round": 6,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 6,
+        "avg_crowd": 14000
+      },
+      {
+        "team": "St Kilda",
+        "round": 6,
+        "avg_crowd": 14000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 7,
+        "avg_crowd": 41000
+      },
+      {
+        "team": "Sydney",
+        "round": 7,
+        "avg_crowd": 39500
+      },
+      {
+        "team": "Collingwood",
+        "round": 7,
+        "avg_crowd": 85000
+      },
+      {
+        "team": "Melbourne",
+        "round": 7,
+        "avg_crowd": 85000
+      },
+      {
+        "team": "Geelong",
+        "round": 7,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 7,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Essendon",
+        "round": 7,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "GWS",
+        "round": 7,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Adelaide",
+        "round": 7,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Richmond",
+        "round": 7,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Fremantle",
+        "round": 7,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "St Kilda",
+        "round": 7,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 7,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "West Coast",
+        "round": 7,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Carlton",
+        "round": 7,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 7,
+        "avg_crowd": 20000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 7,
+        "avg_crowd": 20000
+      },
+      {
+        "team": "Melbourne",
+        "round": 8,
+        "avg_crowd": 68000
+      },
+      {
+        "team": "Essendon",
+        "round": 8,
+        "avg_crowd": 68000
+      },
+      {
+        "team": "Collingwood",
+        "round": 8,
+        "avg_crowd": 82000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 8,
+        "avg_crowd": 82000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 8,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Sydney",
+        "round": 8,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Fremantle",
+        "round": 8,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Geelong",
+        "round": 8,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "GWS",
+        "round": 8,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Adelaide",
+        "round": 8,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Carlton",
+        "round": 8,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Richmond",
+        "round": 8,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 8,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 8,
+        "avg_crowd": 50000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 8,
+        "avg_crowd": 16000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 8,
+        "avg_crowd": 16000
+      },
+      {
+        "team": "St Kilda",
+        "round": 8,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "West Coast",
+        "round": 8,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 9,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Geelong",
+        "round": 9,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Sydney",
+        "round": 9,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Collingwood",
+        "round": 9,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Melbourne",
+        "round": 9,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 9,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Essendon",
+        "round": 9,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 9,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Adelaide",
+        "round": 9,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Fremantle",
+        "round": 9,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Richmond",
+        "round": 9,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "GWS",
+        "round": 9,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 9,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "Carlton",
+        "round": 9,
+        "avg_crowd": 40000
+      },
+      {
+        "team": "West Coast",
+        "round": 9,
+        "avg_crowd": 28000
+      },
+      {
+        "team": "St Kilda",
+        "round": 9,
+        "avg_crowd": 28000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 9,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 9,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Geelong",
+        "round": 10,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 10,
+        "avg_crowd": 35000
+      },
+      {
+        "team": "Collingwood",
+        "round": 10,
+        "avg_crowd": 80000
+      },
+      {
+        "team": "Sydney",
+        "round": 10,
+        "avg_crowd": 80000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 10,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Melbourne",
+        "round": 10,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 10,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Essendon",
+        "round": 10,
+        "avg_crowd": 55000
+      },
+      {
+        "team": "Fremantle",
+        "round": 10,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "Adelaide",
+        "round": 10,
+        "avg_crowd": 45000
+      },
+      {
+        "team": "GWS",
+        "round": 10,
+        "avg_crowd": 19000
+      },
+      {
+        "team": "Richmond",
+        "round": 10,
+        "avg_crowd": 19000
+      },
+      {
+        "team": "Carlton",
+        "round": 10,
+        "avg_crowd": 68000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 10,
+        "avg_crowd": 68000
+      },
+      {
+        "team": "St Kilda",
+        "round": 10,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 10,
+        "avg_crowd": 32000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 10,
+        "avg_crowd": 15000
+      },
+      {
+        "team": "West Coast",
+        "round": 10,
+        "avg_crowd": 15000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 11,
+        "avg_crowd": 43000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 11,
+        "avg_crowd": 43000
+      },
+      {
+        "team": "Sydney",
+        "round": 11,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Geelong",
+        "round": 11,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "Melbourne",
+        "round": 11,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Carlton",
+        "round": 11,
+        "avg_crowd": 72000
+      },
+      {
+        "team": "Essendon",
+        "round": 11,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Collingwood",
+        "round": 11,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Adelaide",
+        "round": 11,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 11,
+        "avg_crowd": 42000
+      },
+      {
+        "team": "Richmond",
+        "round": 11,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Fremantle",
+        "round": 11,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 11,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "GWS",
+        "round": 11,
+        "avg_crowd": 38000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 11,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "West Coast",
+        "round": 11,
+        "avg_crowd": 22000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 11,
+        "avg_crowd": 14000
+      },
+      {
+        "team": "St Kilda",
+        "round": 11,
+        "avg_crowd": 14000
+      },
+      {
+        "team": "Geelong",
+        "round": 12,
+        "avg_crowd": 34000
+      },
+      {
+        "team": "Sydney",
+        "round": 12,
+        "avg_crowd": 34000
+      },
+      {
+        "team": "Port Adelaide",
+        "round": 12,
+        "avg_crowd": 52000
+      },
+      {
+        "team": "Collingwood",
+        "round": 12,
+        "avg_crowd": 67000
+      },
+      {
+        "team": "Carlton",
+        "round": 12,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Brisbane Lions",
+        "round": 12,
+        "avg_crowd": 65000
+      },
+      {
+        "team": "Hawthorn",
+        "round": 12,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Melbourne",
+        "round": 12,
+        "avg_crowd": 58000
+      },
+      {
+        "team": "Fremantle",
+        "round": 12,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Richmond",
+        "round": 12,
+        "avg_crowd": 48000
+      },
+      {
+        "team": "Essendon",
+        "round": 12,
+        "avg_crowd": 82000
+      },
+      {
+        "team": "GWS",
+        "round": 12,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "Western Bulldogs",
+        "round": 12,
+        "avg_crowd": 18000
+      },
+      {
+        "team": "West Coast",
+        "round": 12,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "Gold Coast",
+        "round": 12,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "St Kilda",
+        "round": 12,
+        "avg_crowd": 30000
+      },
+      {
+        "team": "North Melbourne",
+        "round": 12,
+        "avg_crowd": 30000
+      }
+    ]
+  },
   "mark": "rect",
   "encoding": {
     "x": {
@@ -24,7 +1078,21 @@
         "title": "Round",
         "titleColor": "#e0e0e0",
         "labelColor": "#e0e0e0"
-      }
+      },
+      "sort": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     "y": {
       "field": "team",
@@ -41,7 +1109,10 @@
       "type": "quantitative",
       "scale": {
         "scheme": "blues",
-        "domain": [10000, 100000]
+        "domain": [
+          10000,
+          100000
+        ]
       },
       "legend": {
         "title": "Avg Crowd",
@@ -50,13 +1121,28 @@
       }
     },
     "tooltip": [
-      {"field": "team", "type": "nominal", "title": "Team"},
-      {"field": "round", "type": "ordinal", "title": "Round"},
-      {"field": "avg_crowd", "type": "quantitative", "title": "Crowd", "format": ",.0f"}
+      {
+        "field": "team",
+        "type": "nominal",
+        "title": "Team"
+      },
+      {
+        "field": "round",
+        "type": "ordinal",
+        "title": "Round"
+      },
+      {
+        "field": "avg_crowd",
+        "type": "quantitative",
+        "title": "Crowd",
+        "format": ",.0f"
+      }
     ]
   },
   "background": "transparent",
   "config": {
-    "view": {"stroke": null}
+    "view": {
+      "stroke": null
+    }
   }
 }

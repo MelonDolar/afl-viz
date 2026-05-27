@@ -1,28 +1,112 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Player Stat Profiles by Position",
-  "data": {"url": "data/player_stats_2024.csv"},
-  "transform": [
-    {
-      "aggregate": [
-        {"op": "mean", "field": "disposals", "as": "avg_disposals"},
-        {"op": "mean", "field": "marks", "as": "avg_marks"},
-        {"op": "mean", "field": "tackles", "as": "avg_tackles"},
-        {"op": "mean", "field": "clearances", "as": "avg_clearances"},
-        {"op": "mean", "field": "inside_50s", "as": "avg_inside50s"}
-      ],
-      "groupby": ["position"]
-    },
-    {
-      "fold": ["avg_disposals", "avg_marks", "avg_tackles", "avg_clearances", "avg_inside50s"],
-      "as": ["stat", "value"]
-    },
-    {
-      "calculate": "replace(datum.stat, 'avg_', '')",
-      "as": "stat_label"
-    }
-  ],
-  "mark": {"type": "bar"},
+  "data": {
+    "values": [
+      {
+        "position": "MID",
+        "stat": "Disposals",
+        "value": 28.0
+      },
+      {
+        "position": "MID",
+        "stat": "Marks",
+        "value": 7.08
+      },
+      {
+        "position": "MID",
+        "stat": "Tackles",
+        "value": 5.44
+      },
+      {
+        "position": "MID",
+        "stat": "Clearances",
+        "value": 6.65
+      },
+      {
+        "position": "MID",
+        "stat": "Inside 50s",
+        "value": 6.49
+      },
+      {
+        "position": "FWD",
+        "stat": "Disposals",
+        "value": 14.09
+      },
+      {
+        "position": "FWD",
+        "stat": "Marks",
+        "value": 4.91
+      },
+      {
+        "position": "FWD",
+        "stat": "Tackles",
+        "value": 2.65
+      },
+      {
+        "position": "FWD",
+        "stat": "Clearances",
+        "value": 2.0
+      },
+      {
+        "position": "FWD",
+        "stat": "Inside 50s",
+        "value": 8.05
+      },
+      {
+        "position": "RUC",
+        "stat": "Disposals",
+        "value": 21.8
+      },
+      {
+        "position": "RUC",
+        "stat": "Marks",
+        "value": 7.13
+      },
+      {
+        "position": "RUC",
+        "stat": "Tackles",
+        "value": 3.8
+      },
+      {
+        "position": "RUC",
+        "stat": "Clearances",
+        "value": 4.67
+      },
+      {
+        "position": "RUC",
+        "stat": "Inside 50s",
+        "value": 3.6
+      },
+      {
+        "position": "DEF",
+        "stat": "Disposals",
+        "value": 18.71
+      },
+      {
+        "position": "DEF",
+        "stat": "Marks",
+        "value": 9.27
+      },
+      {
+        "position": "DEF",
+        "stat": "Tackles",
+        "value": 4.47
+      },
+      {
+        "position": "DEF",
+        "stat": "Clearances",
+        "value": 2.91
+      },
+      {
+        "position": "DEF",
+        "stat": "Inside 50s",
+        "value": 3.2
+      }
+    ]
+  },
+  "mark": {
+    "type": "bar"
+  },
   "encoding": {
     "x": {
       "field": "position",
@@ -46,11 +130,23 @@
       }
     },
     "color": {
-      "field": "stat_label",
+      "field": "stat",
       "type": "nominal",
       "scale": {
-        "domain": ["disposals", "marks", "tackles", "clearances", "inside50s"],
-        "range": ["#3498db", "#e74c3c", "#f39c12", "#2ecc71", "#9b59b6"]
+        "domain": [
+          "Disposals",
+          "Marks",
+          "Tackles",
+          "Clearances",
+          "Inside 50s"
+        ],
+        "range": [
+          "#3498db",
+          "#e74c3c",
+          "#f39c12",
+          "#2ecc71",
+          "#9b59b6"
+        ]
       },
       "legend": {
         "title": "Stat",
@@ -59,14 +155,32 @@
       }
     },
     "tooltip": [
-      {"field": "position", "type": "nominal", "title": "Position"},
-      {"field": "stat_label", "type": "nominal", "title": "Stat"},
-      {"field": "value", "type": "quantitative", "title": "Avg Value", "format": ".1f"}
+      {
+        "field": "position",
+        "type": "nominal",
+        "title": "Position"
+      },
+      {
+        "field": "stat",
+        "type": "nominal",
+        "title": "Stat"
+      },
+      {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Avg Value",
+        "format": ".1f"
+      }
     ]
   },
   "background": "transparent",
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domainColor": "#555", "tickColor": "#555"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domainColor": "#555",
+      "tickColor": "#555"
+    }
   }
 }

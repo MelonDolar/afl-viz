@@ -1,8 +1,296 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "AFL 2024 Season - Team Wins",
   "data": {
-    "url": "data/team_info.csv"
+    "values": [
+      {
+        "team": "Adelaide",
+        "city": "Adelaide",
+        "state": "SA",
+        "latitude": -34.9153,
+        "longitude": 138.596,
+        "founded": 1991.0,
+        "premierships": 2.0,
+        "home_ground": "Adelaide Oval",
+        "capacity": 53500.0,
+        "wins_2024": 14.0,
+        "losses_2024": 10.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 95.2,
+        "points_against_avg": 85.4
+      },
+      {
+        "team": "Brisbane Lions",
+        "city": "Brisbane",
+        "state": "QLD",
+        "latitude": -27.4849,
+        "longitude": 153.0389,
+        "founded": 1996.0,
+        "premierships": 4.0,
+        "home_ground": "The Gabba",
+        "capacity": 42000.0,
+        "wins_2024": 18.0,
+        "losses_2024": 6.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 105.8,
+        "points_against_avg": 82.4
+      },
+      {
+        "team": "Carlton",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.8136,
+        "longitude": 144.9631,
+        "founded": 1897.0,
+        "premierships": 16.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 13.0,
+        "losses_2024": 11.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 96.4,
+        "points_against_avg": 91.2
+      },
+      {
+        "team": "Collingwood",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.82,
+        "longitude": 144.983,
+        "founded": 1897.0,
+        "premierships": 16.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 17.0,
+        "losses_2024": 7.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 104.2,
+        "points_against_avg": 87.8
+      },
+      {
+        "team": "Essendon",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.749,
+        "longitude": 144.91,
+        "founded": 1897.0,
+        "premierships": 16.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 12.0,
+        "losses_2024": 12.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 97.4,
+        "points_against_avg": 94.2
+      },
+      {
+        "team": "Fremantle",
+        "city": "Perth",
+        "state": "WA",
+        "latitude": -31.9505,
+        "longitude": 115.8605,
+        "founded": 1995.0,
+        "premierships": 0.0,
+        "home_ground": "Optus Stadium",
+        "capacity": 60000.0,
+        "wins_2024": 11.0,
+        "losses_2024": 13.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 90.8,
+        "points_against_avg": 93.4
+      },
+      {
+        "team": "Geelong",
+        "city": "Geelong",
+        "state": "VIC",
+        "latitude": -38.1598,
+        "longitude": 144.355,
+        "founded": 1897.0,
+        "premierships": 10.0,
+        "home_ground": "GMHBA Stadium",
+        "capacity": 36000.0,
+        "wins_2024": 18.0,
+        "losses_2024": 6.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 108.4,
+        "points_against_avg": 82.6
+      },
+      {
+        "team": "Gold Coast",
+        "city": "Gold Coast",
+        "state": "QLD",
+        "latitude": -28.0167,
+        "longitude": 153.4,
+        "founded": 2011.0,
+        "premierships": 0.0,
+        "home_ground": "Heritage Bank Stadium",
+        "capacity": 25000.0,
+        "wins_2024": 8.0,
+        "losses_2024": 16.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 80.4,
+        "points_against_avg": 97.8
+      },
+      {
+        "team": "GWS",
+        "city": "Sydney",
+        "state": "NSW",
+        "latitude": -33.8688,
+        "longitude": 151.2093,
+        "founded": 2012.0,
+        "premierships": 1.0,
+        "home_ground": "ENGIE Stadium",
+        "capacity": 24000.0,
+        "wins_2024": 10.0,
+        "losses_2024": 14.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 85.4,
+        "points_against_avg": 94.2
+      },
+      {
+        "team": "Hawthorn",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.8136,
+        "longitude": 145.01,
+        "founded": 1902.0,
+        "premierships": 13.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 16.0,
+        "losses_2024": 8.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 103.4,
+        "points_against_avg": 86.8
+      },
+      {
+        "team": "Melbourne",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.82,
+        "longitude": 144.983,
+        "founded": 1897.0,
+        "premierships": 13.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 13.0,
+        "losses_2024": 11.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 95.8,
+        "points_against_avg": 91.4
+      },
+      {
+        "team": "North Melbourne",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.7968,
+        "longitude": 144.9458,
+        "founded": 1925.0,
+        "premierships": 4.0,
+        "home_ground": "Marvel Stadium",
+        "capacity": 56347.0,
+        "wins_2024": 6.0,
+        "losses_2024": 18.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 72.4,
+        "points_against_avg": 102.8
+      },
+      {
+        "team": "Port Adelaide",
+        "city": "Adelaide",
+        "state": "SA",
+        "latitude": -34.865,
+        "longitude": 138.5075,
+        "founded": 1997.0,
+        "premierships": 1.0,
+        "home_ground": "Adelaide Oval",
+        "capacity": 53500.0,
+        "wins_2024": 15.0,
+        "losses_2024": 9.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 100.2,
+        "points_against_avg": 85.8
+      },
+      {
+        "team": "Richmond",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.82,
+        "longitude": 144.983,
+        "founded": 1897.0,
+        "premierships": 13.0,
+        "home_ground": "MCG",
+        "capacity": 100024.0,
+        "wins_2024": 11.0,
+        "losses_2024": 13.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 92.4,
+        "points_against_avg": 93.8
+      },
+      {
+        "team": "St Kilda",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.8673,
+        "longitude": 144.983,
+        "founded": 1897.0,
+        "premierships": 1.0,
+        "home_ground": "Marvel Stadium",
+        "capacity": 56347.0,
+        "wins_2024": 10.0,
+        "losses_2024": 14.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 85.2,
+        "points_against_avg": 95.4
+      },
+      {
+        "team": "Sydney",
+        "city": "Sydney",
+        "state": "NSW",
+        "latitude": -33.8688,
+        "longitude": 151.2093,
+        "founded": 1897.0,
+        "premierships": 5.0,
+        "home_ground": "SCG",
+        "capacity": 48000.0,
+        "wins_2024": 15.0,
+        "losses_2024": 9.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 98.4,
+        "points_against_avg": 87.2
+      },
+      {
+        "team": "West Coast",
+        "city": "Perth",
+        "state": "WA",
+        "latitude": -31.9505,
+        "longitude": 115.8605,
+        "founded": 1987.0,
+        "premierships": 4.0,
+        "home_ground": "Optus Stadium",
+        "capacity": 60000.0,
+        "wins_2024": 5.0,
+        "losses_2024": 19.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 68.2,
+        "points_against_avg": 104.8
+      },
+      {
+        "team": "Western Bulldogs",
+        "city": "Melbourne",
+        "state": "VIC",
+        "latitude": -37.8673,
+        "longitude": 144.9458,
+        "founded": 1925.0,
+        "premierships": 2.0,
+        "home_ground": "Marvel Stadium",
+        "capacity": 56347.0,
+        "wins_2024": 11.0,
+        "losses_2024": 13.0,
+        "draws_2024": 0.0,
+        "points_for_avg": 88.4,
+        "points_against_avg": 93.2
+      }
+    ]
   },
   "transform": [
     {
@@ -34,27 +322,61 @@
         "labelColor": "#e0e0e0",
         "gridColor": "#333"
       },
-      "scale": {"domain": [0, 24]}
+      "scale": {
+        "domain": [
+          0,
+          24
+        ]
+      }
     },
     "color": {
       "field": "win_pct",
       "type": "quantitative",
       "scale": {
-        "domain": [20, 80],
-        "range": ["#c0392b", "#f39c12", "#27ae60"]
+        "domain": [
+          20,
+          80
+        ],
+        "range": [
+          "#c0392b",
+          "#f39c12",
+          "#27ae60"
+        ]
       },
       "legend": null
     },
     "tooltip": [
-      {"field": "team", "type": "nominal", "title": "Team"},
-      {"field": "wins_2024", "type": "quantitative", "title": "Wins"},
-      {"field": "losses_2024", "type": "quantitative", "title": "Losses"},
-      {"field": "win_pct", "type": "quantitative", "title": "Win %", "format": ".1f"}
+      {
+        "field": "team",
+        "type": "nominal",
+        "title": "Team"
+      },
+      {
+        "field": "wins_2024",
+        "type": "quantitative",
+        "title": "Wins"
+      },
+      {
+        "field": "losses_2024",
+        "type": "quantitative",
+        "title": "Losses"
+      },
+      {
+        "field": "win_pct",
+        "type": "quantitative",
+        "title": "Win %",
+        "format": ".1f"
+      }
     ]
   },
   "background": "transparent",
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domainColor": "#555", "tickColor": "#555"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domainColor": "#555",
+      "tickColor": "#555"
+    }
   }
 }

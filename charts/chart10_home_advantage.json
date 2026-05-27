@@ -1,40 +1,117 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Home vs Away Performance 2024",
-  "data": {"url": "data/matches_2024.csv"},
-  "transform": [
-    {
-      "fold": [
-        {"field": "home_team", "as": "home_team"},
-        {"field": "home_score", "as": "score"},
-        {"field": "away_score", "as": "opp_score"}
-      ]
-    },
-    {
-      "calculate": "datum.home_score > datum.away_score ? 'Win' : datum.home_score < datum.away_score ? 'Loss' : 'Draw'",
-      "as": "result"
-    },
-    {
-      "aggregate": [
-        {"op": "count", "as": "total_games"},
-        {"op": "sum", "field": "home_score", "as": "total_home_score"},
-        {"op": "sum", "field": "away_score", "as": "total_away_score"}
-      ],
-      "groupby": ["home_team"]
-    },
-    {
-      "calculate": "datum.total_home_score / datum.total_games",
-      "as": "avg_score_for"
-    },
-    {
-      "calculate": "datum.total_away_score / datum.total_games",
-      "as": "avg_score_against"
-    },
-    {
-      "calculate": "datum.avg_score_for - datum.avg_score_against",
-      "as": "home_advantage"
-    }
-  ],
+  "data": {
+    "values": [
+      {
+        "home_team": "Melbourne",
+        "avg_score_for": 91.6,
+        "avg_score_against": 92.9,
+        "home_advantage": -1.3
+      },
+      {
+        "home_team": "Collingwood",
+        "avg_score_for": 107.4,
+        "avg_score_against": 92.9,
+        "home_advantage": 14.6
+      },
+      {
+        "home_team": "Geelong",
+        "avg_score_for": 115.0,
+        "avg_score_against": 80.0,
+        "home_advantage": 35.0
+      },
+      {
+        "home_team": "Brisbane Lions",
+        "avg_score_for": 111.7,
+        "avg_score_against": 87.7,
+        "home_advantage": 24.0
+      },
+      {
+        "home_team": "Sydney",
+        "avg_score_for": 93.5,
+        "avg_score_against": 92.5,
+        "home_advantage": 1.0
+      },
+      {
+        "home_team": "Fremantle",
+        "avg_score_for": 88.5,
+        "avg_score_against": 93.5,
+        "home_advantage": -5.0
+      },
+      {
+        "home_team": "Port Adelaide",
+        "avg_score_for": 108.3,
+        "avg_score_against": 84.3,
+        "home_advantage": 24.0
+      },
+      {
+        "home_team": "Hawthorn",
+        "avg_score_for": 106.7,
+        "avg_score_against": 86.7,
+        "home_advantage": 20.0
+      },
+      {
+        "home_team": "Adelaide",
+        "avg_score_for": 92.8,
+        "avg_score_against": 92.0,
+        "home_advantage": 0.8
+      },
+      {
+        "home_team": "Carlton",
+        "avg_score_for": 93.0,
+        "avg_score_against": 93.3,
+        "home_advantage": -0.3
+      },
+      {
+        "home_team": "St Kilda",
+        "avg_score_for": 84.6,
+        "avg_score_against": 79.4,
+        "home_advantage": 5.1
+      },
+      {
+        "home_team": "Gold Coast",
+        "avg_score_for": 79.8,
+        "avg_score_against": 82.0,
+        "home_advantage": -2.2
+      },
+      {
+        "home_team": "Western Bulldogs",
+        "avg_score_for": 85.6,
+        "avg_score_against": 91.4,
+        "home_advantage": -5.8
+      },
+      {
+        "home_team": "GWS",
+        "avg_score_for": 77.2,
+        "avg_score_against": 99.7,
+        "home_advantage": -22.5
+      },
+      {
+        "home_team": "Essendon",
+        "avg_score_for": 98.3,
+        "avg_score_against": 91.5,
+        "home_advantage": 6.8
+      },
+      {
+        "home_team": "Richmond",
+        "avg_score_for": 88.5,
+        "avg_score_against": 85.3,
+        "home_advantage": 3.2
+      },
+      {
+        "home_team": "North Melbourne",
+        "avg_score_for": 66.2,
+        "avg_score_against": 83.5,
+        "home_advantage": -17.3
+      },
+      {
+        "home_team": "West Coast",
+        "avg_score_for": 64.0,
+        "avg_score_against": 95.8,
+        "home_advantage": -31.8
+      }
+    ]
+  },
   "mark": {
     "type": "bar",
     "cornerRadiusEnd": 4
@@ -54,7 +131,7 @@
       "field": "home_advantage",
       "type": "quantitative",
       "axis": {
-        "title": "Average Score Differential (Home Score - Opposition Score)",
+        "title": "Avg Score Differential at Home",
         "titleColor": "#e0e0e0",
         "labelColor": "#e0e0e0",
         "gridColor": "#333"
@@ -68,15 +145,39 @@
       "value": "#c0392b"
     },
     "tooltip": [
-      {"field": "home_team", "type": "nominal", "title": "Team"},
-      {"field": "avg_score_for", "type": "quantitative", "title": "Avg Home Score", "format": ".1f"},
-      {"field": "avg_score_against", "type": "quantitative", "title": "Avg Opp Score", "format": ".1f"},
-      {"field": "home_advantage", "type": "quantitative", "title": "Home Advantage", "format": ".1f"}
+      {
+        "field": "home_team",
+        "type": "nominal",
+        "title": "Team"
+      },
+      {
+        "field": "avg_score_for",
+        "type": "quantitative",
+        "title": "Avg Home Score",
+        "format": ".1f"
+      },
+      {
+        "field": "avg_score_against",
+        "type": "quantitative",
+        "title": "Avg Opp Score",
+        "format": ".1f"
+      },
+      {
+        "field": "home_advantage",
+        "type": "quantitative",
+        "title": "Home Advantage",
+        "format": ".1f"
+      }
     ]
   },
   "background": "transparent",
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domainColor": "#555", "tickColor": "#555"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domainColor": "#555",
+      "tickColor": "#555"
+    }
   }
 }

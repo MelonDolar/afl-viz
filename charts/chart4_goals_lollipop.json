@@ -1,29 +1,270 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Top Goal Scorers AFL 2024",
-  "data": {"url": "data/player_stats_2024.csv"},
-  "transform": [
-    {"filter": "datum.position === 'FWD'"},
-    {"filter": "datum.goals > 20"},
-    {"calculate": "datum.player + ' (' + datum.team + ')'", "as": "player_label"}
-  ],
+  "data": {
+    "values": [
+      {
+        "player": "Jeremy Cameron",
+        "team": "Geelong",
+        "games": 22.0,
+        "goals": 58.0,
+        "behinds": 18.0,
+        "disposals": 14.2,
+        "kicks": 9.8,
+        "handballs": 4.4,
+        "marks": 5.2,
+        "tackles": 2.8,
+        "hit_outs": 0.1,
+        "clearances": 1.8,
+        "inside_50s": 8.8,
+        "rebound_50s": 0.8,
+        "contested_possessions": 5.4,
+        "brownlow_votes": 16.0,
+        "position": "FWD",
+        "player_label": "Jeremy Cameron (Geelong)"
+      },
+      {
+        "player": "Charlie Curnow",
+        "team": "Carlton",
+        "games": 24.0,
+        "goals": 52.0,
+        "behinds": 14.0,
+        "disposals": 12.8,
+        "kicks": 8.4,
+        "handballs": 4.4,
+        "marks": 4.8,
+        "tackles": 2.2,
+        "hit_outs": 0.1,
+        "clearances": 1.4,
+        "inside_50s": 8.2,
+        "rebound_50s": 0.6,
+        "contested_possessions": 4.8,
+        "brownlow_votes": 15.0,
+        "position": "FWD",
+        "player_label": "Charlie Curnow (Carlton)"
+      },
+      {
+        "player": "Harry McKay",
+        "team": "Carlton",
+        "games": 22.0,
+        "goals": 48.0,
+        "behinds": 16.0,
+        "disposals": 13.2,
+        "kicks": 9.2,
+        "handballs": 4.0,
+        "marks": 5.0,
+        "tackles": 2.0,
+        "hit_outs": 0.1,
+        "clearances": 1.6,
+        "inside_50s": 8.4,
+        "rebound_50s": 0.8,
+        "contested_possessions": 5.2,
+        "brownlow_votes": 14.0,
+        "position": "FWD",
+        "player_label": "Harry McKay (Carlton)"
+      },
+      {
+        "player": "Tom Hawkins",
+        "team": "Geelong",
+        "games": 20.0,
+        "goals": 44.0,
+        "behinds": 12.0,
+        "disposals": 11.4,
+        "kicks": 7.8,
+        "handballs": 3.6,
+        "marks": 4.6,
+        "tackles": 2.4,
+        "hit_outs": 0.2,
+        "clearances": 1.2,
+        "inside_50s": 7.8,
+        "rebound_50s": 0.4,
+        "contested_possessions": 4.2,
+        "brownlow_votes": 10.0,
+        "position": "FWD",
+        "player_label": "Tom Hawkins (Geelong)"
+      },
+      {
+        "player": "Joe Daniher",
+        "team": "Brisbane Lions",
+        "games": 22.0,
+        "goals": 42.0,
+        "behinds": 14.0,
+        "disposals": 12.4,
+        "kicks": 8.8,
+        "handballs": 3.6,
+        "marks": 5.4,
+        "tackles": 2.2,
+        "hit_outs": 0.1,
+        "clearances": 1.4,
+        "inside_50s": 8.4,
+        "rebound_50s": 0.6,
+        "contested_possessions": 4.8,
+        "brownlow_votes": 12.0,
+        "position": "FWD",
+        "player_label": "Joe Daniher (Brisbane Lions)"
+      },
+      {
+        "player": "Toby Greene",
+        "team": "GWS",
+        "games": 22.0,
+        "goals": 30.0,
+        "behinds": 12.0,
+        "disposals": 18.4,
+        "kicks": 12.2,
+        "handballs": 6.2,
+        "marks": 5.8,
+        "tackles": 3.8,
+        "hit_outs": 0.1,
+        "clearances": 3.2,
+        "inside_50s": 8.8,
+        "rebound_50s": 0.8,
+        "contested_possessions": 8.2,
+        "brownlow_votes": 14.0,
+        "position": "FWD",
+        "player_label": "Toby Greene (GWS)"
+      },
+      {
+        "player": "Josh Rachele",
+        "team": "Adelaide",
+        "games": 24.0,
+        "goals": 28.0,
+        "behinds": 10.0,
+        "disposals": 14.2,
+        "kicks": 9.2,
+        "handballs": 5.0,
+        "marks": 4.4,
+        "tackles": 2.8,
+        "hit_outs": 0.1,
+        "clearances": 2.4,
+        "inside_50s": 7.8,
+        "rebound_50s": 0.6,
+        "contested_possessions": 6.2,
+        "brownlow_votes": 11.0,
+        "position": "FWD",
+        "player_label": "Josh Rachele (Adelaide)"
+      },
+      {
+        "player": "Callum Ah Chee",
+        "team": "Brisbane Lions",
+        "games": 22.0,
+        "goals": 24.0,
+        "behinds": 8.0,
+        "disposals": 12.8,
+        "kicks": 8.4,
+        "handballs": 4.4,
+        "marks": 4.2,
+        "tackles": 2.4,
+        "hit_outs": 0.1,
+        "clearances": 1.8,
+        "inside_50s": 7.4,
+        "rebound_50s": 0.6,
+        "contested_possessions": 5.4,
+        "brownlow_votes": 8.0,
+        "position": "FWD",
+        "player_label": "Callum Ah Chee (Brisbane Lions)"
+      },
+      {
+        "player": "Ben Brown",
+        "team": "Melbourne",
+        "games": 20.0,
+        "goals": 22.0,
+        "behinds": 8.0,
+        "disposals": 11.8,
+        "kicks": 7.8,
+        "handballs": 4.0,
+        "marks": 4.0,
+        "tackles": 2.0,
+        "hit_outs": 0.1,
+        "clearances": 1.4,
+        "inside_50s": 7.2,
+        "rebound_50s": 0.4,
+        "contested_possessions": 4.4,
+        "brownlow_votes": 7.0,
+        "position": "FWD",
+        "player_label": "Ben Brown (Melbourne)"
+      },
+      {
+        "player": "Mitch Lewis",
+        "team": "Hawthorn",
+        "games": 22.0,
+        "goals": 36.0,
+        "behinds": 14.0,
+        "disposals": 13.4,
+        "kicks": 9.4,
+        "handballs": 4.0,
+        "marks": 5.2,
+        "tackles": 2.2,
+        "hit_outs": 0.1,
+        "clearances": 1.6,
+        "inside_50s": 8.0,
+        "rebound_50s": 0.6,
+        "contested_possessions": 5.0,
+        "brownlow_votes": 12.0,
+        "position": "FWD",
+        "player_label": "Mitch Lewis (Hawthorn)"
+      },
+      {
+        "player": "Connor Rozee",
+        "team": "Port Adelaide",
+        "games": 24.0,
+        "goals": 24.0,
+        "behinds": 10.0,
+        "disposals": 20.4,
+        "kicks": 13.2,
+        "handballs": 7.2,
+        "marks": 5.4,
+        "tackles": 4.4,
+        "hit_outs": 0.1,
+        "clearances": 4.2,
+        "inside_50s": 7.8,
+        "rebound_50s": 1.4,
+        "contested_possessions": 9.8,
+        "brownlow_votes": 14.0,
+        "position": "FWD",
+        "player_label": "Connor Rozee (Port Adelaide)"
+      }
+    ]
+  },
   "layer": [
     {
-      "mark": {"type": "rule", "strokeWidth": 2},
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2
+      },
       "encoding": {
         "y": {
           "field": "player_label",
           "type": "nominal",
           "sort": "-x",
-          "axis": {"title": null, "labelColor": "#e0e0e0", "labelFontSize": 11}
+          "axis": {
+            "title": null,
+            "labelColor": "#e0e0e0",
+            "labelFontSize": 11
+          }
         },
-        "x": {"field": "goals", "type": "quantitative", "scale": {"domain": [0, 65]}},
-        "x2": {"datum": 0},
-        "color": {"value": "#444"}
+        "x": {
+          "field": "goals",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              65
+            ]
+          }
+        },
+        "x2": {
+          "datum": 0
+        },
+        "color": {
+          "value": "#444"
+        }
       }
     },
     {
-      "mark": {"type": "point", "filled": true, "size": 120},
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 120
+      },
       "encoding": {
         "y": {
           "field": "player_label",
@@ -43,20 +284,45 @@
         "color": {
           "field": "team",
           "type": "nominal",
-          "legend": {"title": "Team", "labelColor": "#e0e0e0", "titleColor": "#e0e0e0"}
+          "legend": {
+            "title": "Team",
+            "labelColor": "#e0e0e0",
+            "titleColor": "#e0e0e0"
+          }
         },
         "tooltip": [
-          {"field": "player", "type": "nominal", "title": "Player"},
-          {"field": "team", "type": "nominal", "title": "Team"},
-          {"field": "goals", "type": "quantitative", "title": "Goals"},
-          {"field": "games", "type": "quantitative", "title": "Games"}
+          {
+            "field": "player",
+            "type": "nominal",
+            "title": "Player"
+          },
+          {
+            "field": "team",
+            "type": "nominal",
+            "title": "Team"
+          },
+          {
+            "field": "goals",
+            "type": "quantitative",
+            "title": "Goals"
+          },
+          {
+            "field": "games",
+            "type": "quantitative",
+            "title": "Games"
+          }
         ]
       }
     }
   ],
   "background": "transparent",
   "config": {
-    "view": {"stroke": null},
-    "axis": {"domainColor": "#555", "tickColor": "#555"}
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domainColor": "#555",
+      "tickColor": "#555"
+    }
   }
 }
