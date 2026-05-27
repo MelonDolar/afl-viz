@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "AFL Premierships by Team (Top 10)",
+  "data": {
+    "values": [
+      {"team": "Carlton", "premierships": 16, "era": "Traditional"},
+      {"team": "Collingwood", "premierships": 16, "era": "Traditional"},
+      {"team": "Essendon", "premierships": 16, "era": "Traditional"},
+      {"team": "Hawthorn", "premierships": 13, "era": "Traditional"},
+      {"team": "Melbourne", "premierships": 13, "era": "Traditional"},
+      {"team": "Richmond", "premierships": 13, "era": "Traditional"},
+      {"team": "Geelong", "premierships": 10, "era": "Traditional"},
+      {"team": "Brisbane Lions", "premierships": 4, "era": "Modern"},
+      {"team": "North Melbourne", "premierships": 4, "era": "Traditional"},
+      {"team": "West Coast", "premierships": 4, "era": "Modern"},
+      {"team": "Sydney", "premierships": 5, "era": "Modern"},
+      {"team": "Adelaide", "premierships": 2, "era": "Modern"},
+      {"team": "Western Bulldogs", "premierships": 2, "era": "Traditional"},
+      {"team": "Port Adelaide", "premierships": 1, "era": "Modern"},
+      {"team": "GWS", "premierships": 1, "era": "Modern"},
+      {"team": "St Kilda", "premierships": 1, "era": "Traditional"},
+      {"team": "Fremantle", "premierships": 0, "era": "Modern"},
+      {"team": "Gold Coast", "premierships": 0, "era": "Modern"}
+    ]
+  },
+  "transform": [
+    {"filter": "datum.premierships > 0"},
+    {"window": [{"op": "rank", "as": "rank"}], "sort": [{"field": "premierships", "order": "descending"}]}
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 40,
+    "stroke": "#1a1a2e",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "theta": {
+      "field": "premierships",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {
+      "field": "team",
+      "type": "nominal",
+      "legend": {
+        "title": "Team",
+        "labelColor": "#e0e0e0",
+        "titleColor": "#e0e0e0"
+      }
+    },
+    "tooltip": [
+      {"field": "team", "type": "nominal", "title": "Team"},
+      {"field": "premierships", "type": "quantitative", "title": "Premierships"},
+      {"field": "era", "type": "nominal", "title": "Era"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null}
+  }
+}

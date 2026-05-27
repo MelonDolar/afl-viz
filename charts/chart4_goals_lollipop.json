@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top Goal Scorers AFL 2024",
+  "data": {"url": "data/player_stats_2024.csv"},
+  "transform": [
+    {"filter": "datum.position === 'FWD'"},
+    {"filter": "datum.goals > 20"},
+    {"calculate": "datum.player + ' (' + datum.team + ')'", "as": "player_label"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "rule", "strokeWidth": 2},
+      "encoding": {
+        "y": {
+          "field": "player_label",
+          "type": "nominal",
+          "sort": "-x",
+          "axis": {"title": null, "labelColor": "#e0e0e0", "labelFontSize": 11}
+        },
+        "x": {"field": "goals", "type": "quantitative", "scale": {"domain": [0, 65]}},
+        "x2": {"datum": 0},
+        "color": {"value": "#444"}
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 120},
+      "encoding": {
+        "y": {
+          "field": "player_label",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "goals",
+          "type": "quantitative",
+          "axis": {
+            "title": "Season Goals",
+            "titleColor": "#e0e0e0",
+            "labelColor": "#e0e0e0",
+            "gridColor": "#333"
+          }
+        },
+        "color": {
+          "field": "team",
+          "type": "nominal",
+          "legend": {"title": "Team", "labelColor": "#e0e0e0", "titleColor": "#e0e0e0"}
+        },
+        "tooltip": [
+          {"field": "player", "type": "nominal", "title": "Player"},
+          {"field": "team", "type": "nominal", "title": "Team"},
+          {"field": "goals", "type": "quantitative", "title": "Goals"},
+          {"field": "games", "type": "quantitative", "title": "Games"}
+        ]
+      }
+    }
+  ],
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

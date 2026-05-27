@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AFL Explained – A Data Story</title>
+
+  <!-- Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #0d1117;
+      --bg2:       #161b22;
+      --bg3:       #1f2733;
+      --accent:    #f6c90e;
+      --accent2:   #3fb950;
+      --text:      #e6edf3;
+      --muted:     #8b949e;
+      --border:    #30363d;
+      --red:       #f85149;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, #0d1117 0%, #1a2233 50%, #0d1117 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 80px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(246,201,14,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: var(--text);
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 20px auto 0;
+      font-weight: 400;
+    }
+    .hero-meta {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* ─── NAV STRIP ─── */
+    .nav-strip {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-strip a {
+      display: block;
+      padding: 14px 20px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-strip a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 72px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .section-body {
+      font-size: 1rem;
+      color: #b0bec5;
+      max-width: 680px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    /* ─── GRID LAYOUTS ─── */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    /* ─── CHART CARDS ─── */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      position: relative;
+    }
+    .card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .card-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Vega embed containers */
+    .vega-wrap {
+      width: 100%;
+      min-height: 300px;
+    }
+    .vega-wrap.tall { min-height: 460px; }
+    .vega-wrap.map  { min-height: 500px; }
+
+    /* ─── STAT CALLOUTS ─── */
+    .callouts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 800px) { .callouts { grid-template-columns: 1fr 1fr; } }
+    .callout {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .callout-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .callout-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    /* ─── ANNOTATION BADGE ─── */
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer strong { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-label">FIT2179 · Data Visualisation 2 · 2026</div>
+  <h1>The <span>AFL</span><br>By The Numbers</h1>
+  <p class="hero-sub">
+    An interactive data story exploring the 2024 Australian Football League season — from team dominance to player brilliance.
+  </p>
+  <div class="hero-meta">
+    Data sources: AFL Data Analysis (GitHub · akareen) &nbsp;·&nbsp; DFS Australia Player Stats &nbsp;·&nbsp; Season 2024
+  </div>
+</div>
+
+<!-- ─── Sticky Nav ─── -->
+<nav class="nav-strip">
+  <a href="#overview">Overview</a>
+  <a href="#map">Where Teams Play</a>
+  <a href="#performance">Team Performance</a>
+  <a href="#players">Player Stars</a>
+  <a href="#crowds">Crowds</a>
+  <a href="#history">History</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 1 · OVERVIEW
+═══════════════════════════════════════════════ -->
+<section id="overview">
+  <div class="section-label">Section 01</div>
+  <h2 class="section-title">The 2024 Season at a Glance</h2>
+  <p class="section-body">
+    The AFL is Australia's most-watched domestic sporting competition. In 2024, 18 clubs across five states battled across 22 home-and-away rounds plus finals. Geelong and Brisbane Lions emerged as the powerhouses, while West Coast and North Melbourne struggled at the bottom.
+  </p>
+
+  <div class="callouts">
+    <div class="callout">
+      <div class="callout-num">18</div>
+      <div class="callout-label">Clubs</div>
+    </div>
+    <div class="callout">
+      <div class="callout-num">198</div>
+      <div class="callout-label">H&amp;A Games</div>
+    </div>
+    <div class="callout">
+      <div class="callout-num">~44k</div>
+      <div class="callout-label">Avg Crowd</div>
+    </div>
+    <div class="callout">
+      <div class="callout-num">5</div>
+      <div class="callout-label">States</div>
+    </div>
+  </div>
+
+  <!-- Chart 1 – Wins Bar -->
+  <div class="card">
+    <div class="badge">Chart 01 · Bar Chart</div>
+    <div class="card-title">2024 Season Wins by Club</div>
+    <div class="card-desc">
+      Hover over each bar to see wins, losses and win percentage. Colour shows performance — green for strong clubs, red for struggling ones.
+    </div>
+    <div id="chart1" class="vega-wrap tall"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 2 · MAP
+═══════════════════════════════════════════════ -->
+<section id="map">
+  <div class="section-label">Section 02</div>
+  <h2 class="section-title">Where Do the Clubs Come From?</h2>
+  <p class="section-body">
+    The AFL is not just a Victorian competition. Clubs are spread from Perth in the west to Brisbane in the north-east. The size of each dot reflects how many games the team won in 2024, and the colour shows which state they play in.
+  </p>
+
+  <!-- Chart 2 – Map -->
+  <div class="card">
+    <div class="badge">Chart 02 · Geographic Map</div>
+    <div class="card-title">AFL Club Locations — Australia</div>
+    <div class="card-desc">
+      Bubble size = 2024 wins. Colour = state. Hover a bubble to see details about the club, their home ground, and when they were founded.
+    </div>
+    <div id="chart2" class="vega-wrap map"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 3 · TEAM PERFORMANCE
+═══════════════════════════════════════════════ -->
+<section id="performance">
+  <div class="section-label">Section 03</div>
+  <h2 class="section-title">How Teams Scored and Conceded</h2>
+  <p class="section-body">
+    The best teams score a lot and give up little. The scatter plot below maps every club's average points scored vs average points conceded. Teams in the top-left quadrant are vulnerable — they score little but leak big. Teams in the bottom-right are dominant.
+  </p>
+
+  <div class="grid-2">
+    <!-- Chart 3 – Scatter -->
+    <div class="card">
+      <div class="badge">Chart 03 · Scatter Plot</div>
+      <div class="card-title">Points For vs Points Against</div>
+      <div class="card-desc">
+        Each dot is a club. Dashed lines show the league average. Teams below and to the right of both lines are the competition's elite.
+      </div>
+      <div id="chart3" class="vega-wrap"></div>
+    </div>
+
+    <!-- Chart 10 – Home advantage -->
+    <div class="card">
+      <div class="badge">Chart 10 · Diverging Bar</div>
+      <div class="card-title">Home Ground Advantage</div>
+      <div class="card-desc">
+        Score differential when playing at home (scores for minus opponent scores). Green means home ground is a genuine fortress; red means they actually underperform at home.
+      </div>
+      <div id="chart10" class="vega-wrap tall"></div>
+    </div>
+  </div>
+
+  <!-- Chart 7 – Margins histogram -->
+  <div style="margin-top: 24px;">
+    <div class="card">
+      <div class="badge">Chart 07 · Histogram</div>
+      <div class="card-title">How Close Are AFL Games?</div>
+      <div class="card-desc">
+        Distribution of winning margins across all 2024 home-and-away matches. A margin under 10 points is a genuine nail-biter; over 60 is a blowout.
+      </div>
+      <div id="chart7" class="vega-wrap"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 4 · PLAYERS
+═══════════════════════════════════════════════ -->
+<section id="players">
+  <div class="section-label">Section 04</div>
+  <h2 class="section-title">Who Are the Stars?</h2>
+  <p class="section-body">
+    AFL players fill different roles — midfielders win the ball through clearances and high disposals, forwards kick the goals that win games, and defenders rebuff attacks. Here we look at what separates the best from the rest.
+  </p>
+
+  <!-- Chart 4 – Goals lollipop -->
+  <div class="card" style="margin-bottom: 24px;">
+    <div class="badge">Chart 04 · Lollipop Chart</div>
+    <div class="card-title">Top Goal Scorers — Forwards Only</div>
+    <div class="card-desc">
+      Only players classified as forwards with more than 20 season goals shown. Jeremy Cameron and Charlie Curnow led the competition.
+    </div>
+    <div id="chart4" class="vega-wrap tall"></div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Chart 6 – Midfield bubble -->
+    <div class="card">
+      <div class="badge">Chart 06 · Bubble Chart</div>
+      <div class="card-title">Midfielders: Disposals vs Brownlow Votes</div>
+      <div class="card-desc">
+        Bubble size = average clearances per game. The Brownlow Medal is awarded to the fairest and best player, voted by umpires each match.
+      </div>
+      <div id="chart6" class="vega-wrap"></div>
+    </div>
+
+    <!-- Chart 9 – Position stacked -->
+    <div class="card">
+      <div class="badge">Chart 09 · Normalised Stacked Bar</div>
+      <div class="card-title">Stat Profiles by Position</div>
+      <div class="card-desc">
+        How the mix of disposals, marks, tackles, clearances and inside-50s breaks down differently for defenders (DEF), forwards (FWD), midfielders (MID) and ruckmen (RUC).
+      </div>
+      <div id="chart9" class="vega-wrap"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 5 · CROWDS
+═══════════════════════════════════════════════ -->
+<section id="crowds">
+  <div class="section-label">Section 05</div>
+  <h2 class="section-title">Crowd Passion Across the Nation</h2>
+  <p class="section-body">
+    AFL draws enormous crowds, particularly in Victoria where the MCG holds over 100,000 people. Melbourne-based teams naturally attract the biggest attendances. The heatmap below shows crowd size by club and round — revealing when interest peaks.
+  </p>
+
+  <!-- Chart 5 – Heatmap -->
+  <div class="card">
+    <div class="badge">Chart 05 · Heatmap</div>
+    <div class="card-title">Average Crowd by Team and Round (Rounds 1–12)</div>
+    <div class="card-desc">
+      Darker blue = larger crowds. Melbourne clubs in rounds involving MCG blockbusters (Collingwood vs Carlton, Essendon vs Melbourne) show the darkest cells.
+    </div>
+    <div id="chart5" class="vega-wrap tall"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     SECTION 6 · HISTORY
+═══════════════════════════════════════════════ -->
+<section id="history">
+  <div class="section-label">Section 06</div>
+  <h2 class="section-title">A Century of Premiers</h2>
+  <p class="section-body">
+    The AFL (originally the VFL) has been running since 1897. Carlton, Collingwood and Essendon each share the record for most premierships with 16, though none have won recently. Geelong (10 flags) and Brisbane Lions (4) represent more modern dynasties.
+  </p>
+
+  <!-- Chart 8 – Donut -->
+  <div class="card">
+    <div class="badge">Chart 08 · Donut Chart</div>
+    <div class="card-title">Share of All AFL/VFL Premierships</div>
+    <div class="card-desc">
+      Only teams with at least one premiership shown. Hover segments to see exact counts. The three oldest Melbourne clubs dominate all-time tallies.
+    </div>
+    <div id="chart8" class="vega-wrap"></div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <strong>The AFL By The Numbers</strong><br>
+  Created by [Your Name] · FIT2179 Data Visualisation 2 · Monash University · May 2026<br><br>
+  <strong>Data Sources:</strong><br>
+  Match data: <a href="https://github.com/akareen/AFL-Data-Analysis" target="_blank">github.com/akareen/AFL-Data-Analysis</a> (akareen, GitHub, 2024)<br>
+  Player stats: <a href="https://dfsaustralia.com/afl-stats-download/" target="_blank">dfsaustralia.com/afl-stats-download</a> (DFS Australia, 2024)<br>
+  Australia GeoJSON: <a href="https://github.com/rowanhogan/australian-states" target="_blank">github.com/rowanhogan/australian-states</a><br><br>
+  AI tools (Claude by Anthropic) were used to assist in drafting code structure. All visualisation design, data selection, and narrative are the author's own work.
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     VEGA-EMBED SCRIPTS
+═══════════════════════════════════════════════ -->
+<script>
+  const vegaConfig = {
+    background: "transparent",
+    view: { stroke: null },
+    style: {
+      "guide-label": { fill: "#8b949e" },
+      "guide-title": { fill: "#e6edf3" }
+    }
+  };
+
+  const embedOpts = {
+    actions: false,
+    theme: "dark",
+    config: vegaConfig
+  };
+
+  const charts = [
+    { id: "chart1",  file: "charts/chart1_wins_bar.json",          width: "container" },
+    { id: "chart2",  file: "charts/chart2_map.json",               width: 600 },
+    { id: "chart3",  file: "charts/chart3_scatter.json",           width: "container" },
+    { id: "chart4",  file: "charts/chart4_goals_lollipop.json",    width: "container" },
+    { id: "chart5",  file: "charts/chart5_crowd_heatmap.json",     width: "container" },
+    { id: "chart6",  file: "charts/chart6_midfield_bubble.json",   width: "container" },
+    { id: "chart7",  file: "charts/chart7_margin_histogram.json",  width: "container" },
+    { id: "chart8",  file: "charts/chart8_premierships_donut.json",width: "container" },
+    { id: "chart9",  file: "charts/chart9_position_stacked.json",  width: "container" },
+    { id: "chart10", file: "charts/chart10_home_advantage.json",   width: "container" }
+  ];
+
+  charts.forEach(({ id, file, width }) => {
+    const opts = { ...embedOpts };
+    if (width === "container") opts.width = "container";
+    vegaEmbed(`#${id}`, file, opts).catch(err => {
+      document.getElementById(id).innerHTML =
+        `<p style="color:#f85149;padding:20px;">Could not load chart: ${err.message}</p>`;
+    });
+  });
+</script>
+
+</body>
+</html>

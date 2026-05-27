@@ -1,0 +1,82 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Home vs Away Performance 2024",
+  "data": {"url": "data/matches_2024.csv"},
+  "transform": [
+    {
+      "fold": [
+        {"field": "home_team", "as": "home_team"},
+        {"field": "home_score", "as": "score"},
+        {"field": "away_score", "as": "opp_score"}
+      ]
+    },
+    {
+      "calculate": "datum.home_score > datum.away_score ? 'Win' : datum.home_score < datum.away_score ? 'Loss' : 'Draw'",
+      "as": "result"
+    },
+    {
+      "aggregate": [
+        {"op": "count", "as": "total_games"},
+        {"op": "sum", "field": "home_score", "as": "total_home_score"},
+        {"op": "sum", "field": "away_score", "as": "total_away_score"}
+      ],
+      "groupby": ["home_team"]
+    },
+    {
+      "calculate": "datum.total_home_score / datum.total_games",
+      "as": "avg_score_for"
+    },
+    {
+      "calculate": "datum.total_away_score / datum.total_games",
+      "as": "avg_score_against"
+    },
+    {
+      "calculate": "datum.avg_score_for - datum.avg_score_against",
+      "as": "home_advantage"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "y": {
+      "field": "home_team",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelColor": "#e0e0e0",
+        "labelFontSize": 11
+      }
+    },
+    "x": {
+      "field": "home_advantage",
+      "type": "quantitative",
+      "axis": {
+        "title": "Average Score Differential (Home Score - Opposition Score)",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "color": {
+      "condition": {
+        "test": "datum.home_advantage > 0",
+        "value": "#27ae60"
+      },
+      "value": "#c0392b"
+    },
+    "tooltip": [
+      {"field": "home_team", "type": "nominal", "title": "Team"},
+      {"field": "avg_score_for", "type": "quantitative", "title": "Avg Home Score", "format": ".1f"},
+      {"field": "avg_score_against", "type": "quantitative", "title": "Avg Opp Score", "format": ".1f"},
+      {"field": "home_advantage", "type": "quantitative", "title": "Home Advantage", "format": ".1f"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

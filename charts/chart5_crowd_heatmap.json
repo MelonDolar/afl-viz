@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Crowd Attendance by Team per Round",
+  "data": {"url": "data/matches_2024.csv"},
+  "transform": [
+    {
+      "fold": ["home_team", "away_team"],
+      "as": ["home_away", "team"]
+    },
+    {
+      "filter": "datum.round <= 12"
+    },
+    {
+      "aggregate": [{"op": "mean", "field": "crowd", "as": "avg_crowd"}],
+      "groupby": ["team", "round"]
+    }
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "round",
+      "type": "ordinal",
+      "axis": {
+        "title": "Round",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0"
+      }
+    },
+    "y": {
+      "field": "team",
+      "type": "nominal",
+      "sort": "ascending",
+      "axis": {
+        "title": null,
+        "labelColor": "#e0e0e0",
+        "labelFontSize": 11
+      }
+    },
+    "color": {
+      "field": "avg_crowd",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "blues",
+        "domain": [10000, 100000]
+      },
+      "legend": {
+        "title": "Avg Crowd",
+        "labelColor": "#e0e0e0",
+        "titleColor": "#e0e0e0"
+      }
+    },
+    "tooltip": [
+      {"field": "team", "type": "nominal", "title": "Team"},
+      {"field": "round", "type": "ordinal", "title": "Round"},
+      {"field": "avg_crowd", "type": "quantitative", "title": "Crowd", "format": ",.0f"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null}
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Player Stat Profiles by Position",
+  "data": {"url": "data/player_stats_2024.csv"},
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "mean", "field": "disposals", "as": "avg_disposals"},
+        {"op": "mean", "field": "marks", "as": "avg_marks"},
+        {"op": "mean", "field": "tackles", "as": "avg_tackles"},
+        {"op": "mean", "field": "clearances", "as": "avg_clearances"},
+        {"op": "mean", "field": "inside_50s", "as": "avg_inside50s"}
+      ],
+      "groupby": ["position"]
+    },
+    {
+      "fold": ["avg_disposals", "avg_marks", "avg_tackles", "avg_clearances", "avg_inside50s"],
+      "as": ["stat", "value"]
+    },
+    {
+      "calculate": "replace(datum.stat, 'avg_', '')",
+      "as": "stat_label"
+    }
+  ],
+  "mark": {"type": "bar"},
+  "encoding": {
+    "x": {
+      "field": "position",
+      "type": "nominal",
+      "axis": {
+        "title": "Position",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0"
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "stack": "normalize",
+      "axis": {
+        "title": "Proportion of Stats",
+        "format": "%",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "color": {
+      "field": "stat_label",
+      "type": "nominal",
+      "scale": {
+        "domain": ["disposals", "marks", "tackles", "clearances", "inside50s"],
+        "range": ["#3498db", "#e74c3c", "#f39c12", "#2ecc71", "#9b59b6"]
+      },
+      "legend": {
+        "title": "Stat",
+        "labelColor": "#e0e0e0",
+        "titleColor": "#e0e0e0"
+      }
+    },
+    "tooltip": [
+      {"field": "position", "type": "nominal", "title": "Position"},
+      {"field": "stat_label", "type": "nominal", "title": "Stat"},
+      {"field": "value", "type": "quantitative", "title": "Avg Value", "format": ".1f"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

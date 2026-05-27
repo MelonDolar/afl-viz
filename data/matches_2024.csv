@@ -1,0 +1,110 @@
+round,home_team,away_team,home_score,away_score,venue,crowd,state,home_goals,home_behinds,away_goals,away_behinds,margin,winning_team
+1,Melbourne,Western Bulldogs,91,72,MCG,85000,VIC,13,9,10,12,19,Melbourne
+1,Collingwood,Carlton,103,88,MCG,91000,VIC,14,19,13,10,15,Collingwood
+1,Geelong,St Kilda,115,60,GMHBA Stadium,35000,VIC,16,19,8,12,55,Geelong
+1,Brisbane Lions,Gold Coast,110,72,The Gabba,42000,QLD,15,20,10,12,38,Brisbane Lions
+1,Sydney,GWS,95,84,SCG,40000,NSW,13,14,12,12,11,Sydney
+1,Fremantle,Essendon,88,76,Optus Stadium,55000,WA,12,16,11,10,12,Fremantle
+1,Port Adelaide,Richmond,104,60,Adelaide Oval,52000,SA,14,20,8,12,44,Port Adelaide
+1,Hawthorn,North Melbourne,120,65,MCG,48000,VIC,17,18,9,11,55,Hawthorn
+1,Adelaide,West Coast,130,55,Adelaide Oval,45000,SA,19,4,7,13,75,Adelaide
+2,Carlton,Melbourne,80,95,MCG,82000,VIC,11,14,13,14,-15,Melbourne
+2,St Kilda,Collingwood,72,98,Marvel Stadium,50000,VIC,10,12,14,14,-26,Collingwood
+2,Gold Coast,Geelong,63,102,Heritage Bank Stadium,18000,QLD,9,9,14,18,-39,Geelong
+2,Western Bulldogs,Brisbane Lions,85,96,Marvel Stadium,40000,VIC,12,13,14,12,-11,Brisbane Lions
+2,GWS,Sydney,78,101,ENGIE Stadium,22000,NSW,11,12,14,17,-23,Sydney
+2,Essendon,Fremantle,95,88,MCG,55000,VIC,13,16,12,16,7,Essendon
+2,Richmond,Port Adelaide,70,108,MCG,45000,VIC,10,10,15,18,-38,Port Adelaide
+2,North Melbourne,Hawthorn,55,115,Marvel Stadium,30000,VIC,7,13,16,19,-60,Hawthorn
+2,West Coast,Adelaide,60,122,Optus Stadium,40000,WA,8,12,17,16,-62,Adelaide
+3,Melbourne,GWS,99,78,MCG,55000,VIC,14,15,11,12,21,Melbourne
+3,Collingwood,Geelong,101,95,MCG,78000,VIC,14,17,13,16,6,Collingwood
+3,Brisbane Lions,Fremantle,115,72,The Gabba,38000,QLD,16,19,10,12,43,Brisbane Lions
+3,Sydney,Hawthorn,88,90,SCG,35000,NSW,12,16,13,9,-2,Hawthorn
+3,Port Adelaide,Adelaide,120,88,Adelaide Oval,54000,SA,17,9,12,16,32,Port Adelaide
+3,Essendon,Carlton,102,85,MCG,65000,VIC,14,18,12,13,17,Essendon
+3,St Kilda,West Coast,95,60,Marvel Stadium,32000,VIC,13,14,8,12,35,St Kilda
+3,Geelong,Gold Coast,125,55,GMHBA Stadium,32000,VIC,17,19,7,13,70,Geelong
+3,Richmond,North Melbourne,98,72,MCG,40000,VIC,14,14,10,12,26,Richmond
+3,Western Bulldogs,Melbourne,80,100,Marvel Stadium,42000,VIC,11,14,14,16,-20,Melbourne
+4,Carlton,Sydney,88,92,MCG,60000,VIC,12,16,13,14,-4,Sydney
+4,GWS,Brisbane Lions,75,110,ENGIE Stadium,20000,NSW,10,15,15,20,-35,Brisbane Lions
+4,Fremantle,Port Adelaide,95,105,Optus Stadium,52000,WA,13,14,15,15,-10,Port Adelaide
+4,Adelaide,Collingwood,78,105,Adelaide Oval,48000,SA,11,12,15,15,-27,Collingwood
+4,Hawthorn,Essendon,100,90,MCG,55000,VIC,14,16,13,12,10,Hawthorn
+4,West Coast,Richmond,68,95,Optus Stadium,35000,WA,9,14,13,16,-27,Richmond
+4,North Melbourne,St Kilda,60,88,Marvel Stadium,25000,VIC,8,12,12,16,-28,St Kilda
+4,Gold Coast,Western Bulldogs,78,90,Heritage Bank Stadium,15000,QLD,11,12,12,18,-12,Western Bulldogs
+4,Melbourne,Geelong,85,115,MCG,75000,VIC,12,13,16,19,-30,Geelong
+5,Sydney,Melbourne,95,88,SCG,42000,NSW,13,14,12,16,7,Sydney
+5,Brisbane Lions,Collingwood,105,99,The Gabba,40000,QLD,15,15,14,15,6,Brisbane Lions
+5,Port Adelaide,GWS,118,75,Adelaide Oval,50000,SA,16,22,10,15,43,Port Adelaide
+5,Geelong,Fremantle,120,80,GMHBA Stadium,30000,VIC,17,18,11,14,40,Geelong
+5,Essendon,Adelaide,110,88,MCG,58000,VIC,15,20,12,16,22,Essendon
+5,Collingwood,Hawthorn,108,98,MCG,78000,VIC,15,18,14,14,10,Collingwood
+5,Richmond,Western Bulldogs,90,85,MCG,50000,VIC,13,12,12,13,5,Richmond
+5,St Kilda,Carlton,80,95,Marvel Stadium,35000,VIC,11,14,13,16,-15,Carlton
+5,West Coast,Gold Coast,72,80,Optus Stadium,30000,WA,10,12,11,14,-8,Gold Coast
+6,Melbourne,Brisbane Lions,88,102,MCG,70000,VIC,12,16,14,18,-14,Brisbane Lions
+6,GWS,Collingwood,72,115,ENGIE Stadium,22000,NSW,10,12,16,19,-43,Collingwood
+6,Fremantle,Sydney,90,88,Optus Stadium,50000,WA,13,12,12,16,2,Fremantle
+6,Adelaide,Geelong,78,110,Adelaide Oval,42000,SA,11,12,15,20,-32,Geelong
+6,Hawthorn,Port Adelaide,95,100,MCG,48000,VIC,13,14,14,16,-5,Port Adelaide
+6,Carlton,Essendon,100,95,MCG,72000,VIC,14,16,13,16,5,Carlton
+6,Western Bulldogs,Richmond,80,88,Marvel Stadium,38000,VIC,11,14,12,16,-8,Richmond
+6,North Melbourne,West Coast,75,68,Marvel Stadium,22000,VIC,10,15,9,14,7,North Melbourne
+6,Gold Coast,St Kilda,85,90,Heritage Bank Stadium,14000,QLD,12,13,13,12,-5,St Kilda
+7,Brisbane Lions,Sydney,110,95,The Gabba,41000,QLD,15,20,13,14,15,Brisbane Lions
+7,Collingwood,Melbourne,112,88,MCG,85000,VIC,16,16,12,16,24,Collingwood
+7,Geelong,Port Adelaide,105,92,GMHBA Stadium,32000,VIC,15,15,13,14,13,Geelong
+7,Essendon,GWS,100,78,MCG,55000,VIC,14,16,11,12,22,Essendon
+7,Sydney,Adelaide,95,80,SCG,38000,NSW,13,14,11,14,15,Sydney
+7,Richmond,Fremantle,88,82,MCG,48000,VIC,12,16,11,16,6,Richmond
+7,St Kilda,Hawthorn,70,105,Marvel Stadium,30000,VIC,10,10,15,15,-35,Hawthorn
+7,West Coast,Carlton,60,102,Optus Stadium,32000,WA,8,12,14,18,-42,Carlton
+7,North Melbourne,Gold Coast,65,80,Marvel Stadium,20000,VIC,9,11,11,14,-15,Gold Coast
+8,Melbourne,Essendon,95,88,MCG,68000,VIC,13,16,12,16,7,Melbourne
+8,Collingwood,Brisbane Lions,105,98,MCG,82000,VIC,15,15,14,14,7,Collingwood
+8,Port Adelaide,Sydney,110,85,Adelaide Oval,52000,SA,15,20,12,13,25,Port Adelaide
+8,Fremantle,Geelong,80,115,Optus Stadium,48000,WA,11,14,16,19,-35,Geelong
+8,GWS,Adelaide,85,90,ENGIE Stadium,18000,NSW,12,13,13,12,-5,Adelaide
+8,Carlton,Richmond,102,88,MCG,72000,VIC,14,18,12,16,14,Carlton
+8,Hawthorn,Western Bulldogs,110,80,MCG,50000,VIC,15,20,11,14,30,Hawthorn
+8,Gold Coast,North Melbourne,88,62,Heritage Bank Stadium,16000,QLD,12,16,8,14,26,Gold Coast
+8,St Kilda,West Coast,90,65,Marvel Stadium,32000,VIC,13,12,9,11,25,St Kilda
+9,Brisbane Lions,Geelong,115,100,The Gabba,42000,QLD,16,19,14,16,15,Brisbane Lions
+9,Sydney,Collingwood,98,105,SCG,40000,NSW,14,14,15,15,-7,Collingwood
+9,Melbourne,Port Adelaide,88,95,MCG,65000,VIC,12,16,13,14,-7,Port Adelaide
+9,Essendon,Hawthorn,95,100,MCG,58000,VIC,13,16,14,16,-5,Hawthorn
+9,Adelaide,Fremantle,100,85,Adelaide Oval,45000,SA,14,16,12,13,15,Adelaide
+9,Richmond,GWS,95,80,MCG,45000,VIC,13,14,11,14,15,Richmond
+9,Western Bulldogs,Carlton,88,95,Marvel Stadium,40000,VIC,12,16,13,16,-7,Carlton
+9,West Coast,St Kilda,62,88,Optus Stadium,28000,WA,8,14,12,16,-26,St Kilda
+9,North Melbourne,Gold Coast,70,85,Marvel Stadium,18000,VIC,10,10,12,13,-15,Gold Coast
+10,Geelong,Brisbane Lions,110,105,GMHBA Stadium,35000,VIC,15,20,15,15,5,Geelong
+10,Collingwood,Sydney,108,95,MCG,80000,VIC,15,18,13,14,13,Collingwood
+10,Port Adelaide,Melbourne,100,90,Adelaide Oval,52000,SA,14,16,13,12,10,Port Adelaide
+10,Hawthorn,Essendon,105,95,MCG,55000,VIC,15,15,13,16,10,Hawthorn
+10,Fremantle,Adelaide,88,95,Optus Stadium,45000,WA,12,16,13,14,-7,Adelaide
+10,GWS,Richmond,78,90,ENGIE Stadium,19000,NSW,11,12,13,12,-12,Richmond
+10,Carlton,Western Bulldogs,100,85,MCG,68000,VIC,14,16,12,13,15,Carlton
+10,St Kilda,North Melbourne,95,65,Marvel Stadium,32000,VIC,13,14,9,11,30,St Kilda
+10,Gold Coast,West Coast,85,60,Heritage Bank Stadium,15000,QLD,12,13,8,12,25,Gold Coast
+11,Brisbane Lions,Port Adelaide,115,88,The Gabba,43000,QLD,16,19,12,16,27,Brisbane Lions
+11,Sydney,Geelong,90,108,SCG,38000,NSW,13,12,15,18,-18,Geelong
+11,Melbourne,Carlton,95,100,MCG,72000,VIC,13,16,14,16,-5,Carlton
+11,Essendon,Collingwood,88,110,MCG,65000,VIC,12,16,15,20,-22,Collingwood
+11,Adelaide,Hawthorn,78,105,Adelaide Oval,42000,SA,11,12,15,15,-27,Hawthorn
+11,Richmond,Fremantle,90,85,MCG,48000,VIC,13,12,12,13,5,Richmond
+11,Western Bulldogs,GWS,95,78,Marvel Stadium,38000,VIC,13,14,11,12,17,Western Bulldogs
+11,North Melbourne,West Coast,72,65,Marvel Stadium,22000,VIC,10,12,9,11,7,North Melbourne
+11,Gold Coast,St Kilda,80,88,Heritage Bank Stadium,14000,QLD,11,14,13,12,-8,St Kilda
+12,Geelong,Sydney,115,88,GMHBA Stadium,34000,VIC,16,19,12,16,27,Geelong
+12,Port Adelaide,Collingwood,98,108,Adelaide Oval,52000,SA,14,14,15,18,-10,Collingwood
+12,Carlton,Brisbane Lions,88,105,MCG,65000,VIC,12,16,15,15,-17,Brisbane Lions
+12,Hawthorn,Melbourne,110,90,MCG,58000,VIC,15,20,13,12,20,Hawthorn
+12,Fremantle,Richmond,90,82,Optus Stadium,48000,WA,13,12,11,16,8,Fremantle
+12,Collingwood,Essendon,115,88,MCG,82000,VIC,16,19,12,16,27,Collingwood
+12,GWS,Western Bulldogs,75,92,ENGIE Stadium,18000,NSW,10,15,13,14,-17,Western Bulldogs
+12,West Coast,Gold Coast,62,88,Optus Stadium,30000,WA,8,14,12,16,-26,Gold Coast
+12,St Kilda,North Melbourne,90,68,Marvel Stadium,30000,VIC,13,12,9,14,22,St Kilda

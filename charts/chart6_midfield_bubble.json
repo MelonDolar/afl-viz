@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Midfielders - Disposals vs Brownlow Votes 2024",
+  "data": {"url": "data/player_stats_2024.csv"},
+  "transform": [
+    {"filter": "datum.position === 'MID'"}
+  ],
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "opacity": 0.8
+  },
+  "encoding": {
+    "x": {
+      "field": "disposals",
+      "type": "quantitative",
+      "axis": {
+        "title": "Average Disposals per Game",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "y": {
+      "field": "brownlow_votes",
+      "type": "quantitative",
+      "axis": {
+        "title": "Brownlow Votes",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "size": {
+      "field": "clearances",
+      "type": "quantitative",
+      "scale": {"range": [60, 500]},
+      "legend": {
+        "title": "Clearances/G",
+        "labelColor": "#e0e0e0",
+        "titleColor": "#e0e0e0"
+      }
+    },
+    "color": {
+      "field": "team",
+      "type": "nominal",
+      "legend": {
+        "title": "Team",
+        "labelColor": "#e0e0e0",
+        "titleColor": "#e0e0e0"
+      }
+    },
+    "tooltip": [
+      {"field": "player", "type": "nominal", "title": "Player"},
+      {"field": "team", "type": "nominal", "title": "Team"},
+      {"field": "disposals", "type": "quantitative", "title": "Avg Disposals"},
+      {"field": "brownlow_votes", "type": "quantitative", "title": "Brownlow Votes"},
+      {"field": "clearances", "type": "quantitative", "title": "Avg Clearances"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distribution of Match Winning Margins 2024",
+  "data": {"url": "data/matches_2024.csv"},
+  "transform": [
+    {
+      "calculate": "abs(datum.home_score - datum.away_score)",
+      "as": "margin"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "binSpacing": 2,
+    "color": "#3498db",
+    "opacity": 0.8
+  },
+  "encoding": {
+    "x": {
+      "bin": {"step": 10},
+      "field": "margin",
+      "type": "quantitative",
+      "axis": {
+        "title": "Winning Margin (points)",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "axis": {
+        "title": "Number of Games",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      }
+    },
+    "tooltip": [
+      {"bin": {"step": 10}, "field": "margin", "type": "quantitative", "title": "Margin range"},
+      {"aggregate": "count", "type": "quantitative", "title": "Number of Games"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

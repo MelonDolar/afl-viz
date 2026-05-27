@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "AFL 2024 Season - Team Wins",
+  "data": {
+    "url": "data/team_info.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.wins_2024 / (datum.wins_2024 + datum.losses_2024) * 100",
+      "as": "win_pct"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "y": {
+      "field": "team",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "labelColor": "#e0e0e0"
+      }
+    },
+    "x": {
+      "field": "wins_2024",
+      "type": "quantitative",
+      "axis": {
+        "title": "Wins",
+        "titleColor": "#e0e0e0",
+        "labelColor": "#e0e0e0",
+        "gridColor": "#333"
+      },
+      "scale": {"domain": [0, 24]}
+    },
+    "color": {
+      "field": "win_pct",
+      "type": "quantitative",
+      "scale": {
+        "domain": [20, 80],
+        "range": ["#c0392b", "#f39c12", "#27ae60"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "team", "type": "nominal", "title": "Team"},
+      {"field": "wins_2024", "type": "quantitative", "title": "Wins"},
+      {"field": "losses_2024", "type": "quantitative", "title": "Losses"},
+      {"field": "win_pct", "type": "quantitative", "title": "Win %", "format": ".1f"}
+    ]
+  },
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"domainColor": "#555", "tickColor": "#555"}
+  }
+}

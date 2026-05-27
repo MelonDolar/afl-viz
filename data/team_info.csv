@@ -1,0 +1,19 @@
+team,city,state,latitude,longitude,founded,premierships,home_ground,capacity,wins_2024,losses_2024,draws_2024,points_for_avg,points_against_avg
+Adelaide,Adelaide,SA,-34.9153,138.5960,1991,2,Adelaide Oval,53500,14,10,0,95.2,85.4
+Brisbane Lions,Brisbane,QLD,-27.4849,153.0389,1996,4,The Gabba,42000,18,6,0,105.8,82.4
+Carlton,Melbourne,VIC,-37.8136,144.9631,1897,16,MCG,100024,13,11,0,96.4,91.2
+Collingwood,Melbourne,VIC,-37.8200,144.9830,1897,16,MCG,100024,17,7,0,104.2,87.8
+Essendon,Melbourne,VIC,-37.7490,144.9100,1897,16,MCG,100024,12,12,0,97.4,94.2
+Fremantle,Perth,WA,-31.9505,115.8605,1995,0,Optus Stadium,60000,11,13,0,90.8,93.4
+Geelong,Geelong,VIC,-38.1598,144.3550,1897,10,GMHBA Stadium,36000,18,6,0,108.4,82.6
+Gold Coast,Gold Coast,QLD,-28.0167,153.4000,2011,0,Heritage Bank Stadium,25000,8,16,0,80.4,97.8
+GWS,Sydney,NSW,-33.8688,151.2093,2012,1,ENGIE Stadium,24000,10,14,0,85.4,94.2
+Hawthorn,Melbourne,VIC,-37.8136,145.0100,1902,13,MCG,100024,16,8,0,103.4,86.8
+Melbourne,Melbourne,VIC,-37.8200,144.9830,1897,13,MCG,100024,13,11,0,95.8,91.4
+North Melbourne,Melbourne,VIC,-37.7968,144.9458,1925,4,Marvel Stadium,56347,6,18,0,72.4,102.8
+Port Adelaide,Adelaide,SA,-34.8650,138.5075,1997,1,Adelaide Oval,53500,15,9,0,100.2,85.8
+Richmond,Melbourne,VIC,-37.8200,144.9830,1897,13,MCG,100024,11,13,0,92.4,93.8
+St Kilda,Melbourne,VIC,-37.8673,144.9830,1897,1,Marvel Stadium,56347,10,14,0,85.2,95.4
+Sydney,Sydney,NSW,-33.8688,151.2093,1897,5,SCG,48000,15,9,0,98.4,87.2
+West Coast,Perth,WA,-31.9505,115.8605,1987,4,Optus Stadium,60000,5,19,0,68.2,104.8
+Western Bulldogs,Melbourne,VIC,-37.8673,144.9458,1925,2,Marvel Stadium,56347,11,13,0,88.4,93.2

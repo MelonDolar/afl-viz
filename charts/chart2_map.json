@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "AFL Teams Geographic Map",
+  "width": 600,
+  "height": 500,
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#1a2a3a",
+        "stroke": "#4a6080",
+        "strokeWidth": 1
+      },
+      "projection": {
+        "type": "mercator",
+        "center": [134, -28],
+        "scale": 700
+      }
+    },
+    {
+      "data": {"url": "data/team_info.csv"},
+      "mark": {
+        "type": "circle",
+        "opacity": 0.85
+      },
+      "projection": {
+        "type": "mercator",
+        "center": [134, -28],
+        "scale": 700
+      },
+      "encoding": {
+        "longitude": {"field": "longitude", "type": "quantitative"},
+        "latitude": {"field": "latitude", "type": "quantitative"},
+        "size": {
+          "field": "wins_2024",
+          "type": "quantitative",
+          "scale": {"range": [80, 600]},
+          "legend": {
+            "title": "2024 Wins",
+            "labelColor": "#e0e0e0",
+            "titleColor": "#e0e0e0"
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": ["VIC", "NSW", "QLD", "SA", "WA"],
+            "range": ["#3498db", "#e74c3c", "#f39c12", "#9b59b6", "#1abc9c"]
+          },
+          "legend": {
+            "title": "State",
+            "labelColor": "#e0e0e0",
+            "titleColor": "#e0e0e0"
+          }
+        },
+        "tooltip": [
+          {"field": "team", "type": "nominal", "title": "Team"},
+          {"field": "city", "type": "nominal", "title": "City"},
+          {"field": "wins_2024", "type": "quantitative", "title": "2024 Wins"},
+          {"field": "home_ground", "type": "nominal", "title": "Home Ground"},
+          {"field": "founded", "type": "quantitative", "title": "Founded"}
+        ]
+      }
+    }
+  ],
+  "background": "transparent",
+  "config": {
+    "view": {"stroke": null}
+  }
+}

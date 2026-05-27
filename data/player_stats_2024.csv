@@ -1,0 +1,46 @@
+player,team,games,goals,behinds,disposals,kicks,handballs,marks,tackles,hit_outs,clearances,inside_50s,rebound_50s,contested_possessions,brownlow_votes,position
+Nick Daicos,Collingwood,24,22,8,38.2,22.1,16.1,9.2,4.8,0.2,7.1,8.2,2.1,18.4,22,MID
+Patrick Cripps,Carlton,24,18,6,32.5,18.2,14.3,7.1,6.2,0.1,8.4,7.1,1.8,16.2,20,MID
+Lachie Neale,Brisbane Lions,24,12,5,30.8,17.4,13.4,6.8,5.8,0.2,9.2,6.8,2.0,15.8,18,MID
+Clayton Oliver,Melbourne,20,10,4,28.4,15.2,13.2,5.8,7.2,0.1,8.8,6.2,1.8,16.4,15,MID
+Josh Kennedy,Sydney,24,15,7,31.2,19.4,11.8,8.2,4.4,0.1,6.8,7.8,2.4,14.2,14,MID
+Jeremy Cameron,Geelong,22,58,18,14.2,9.8,4.4,5.2,2.8,0.1,1.8,8.8,0.8,5.4,16,FWD
+Charlie Curnow,Carlton,24,52,14,12.8,8.4,4.4,4.8,2.2,0.1,1.4,8.2,0.6,4.8,15,FWD
+Harry McKay,Carlton,22,48,16,13.2,9.2,4.0,5.0,2.0,0.1,1.6,8.4,0.8,5.2,14,FWD
+Tom Hawkins,Geelong,20,44,12,11.4,7.8,3.6,4.6,2.4,0.2,1.2,7.8,0.4,4.2,10,FWD
+Joe Daniher,Brisbane Lions,22,42,14,12.4,8.8,3.6,5.4,2.2,0.1,1.4,8.4,0.6,4.8,12,FWD
+Max Gawn,Melbourne,24,8,4,24.2,12.4,11.8,8.2,4.2,42.8,5.4,4.2,3.2,14.8,14,RUC
+Brodie Grundy,Sydney,22,6,2,22.8,11.2,11.6,7.4,3.8,40.2,4.8,3.8,2.8,13.2,10,RUC
+Nic Naitanui,West Coast,18,4,2,18.4,9.2,9.2,5.8,3.4,35.8,3.8,2.8,2.2,10.4,8,RUC
+Sam Walsh,Carlton,24,14,6,30.2,16.8,13.4,7.2,5.8,0.1,7.8,6.8,2.2,15.4,16,MID
+Tom Mitchell,Hawthorn,24,10,4,31.4,17.2,14.2,8.4,6.2,0.1,6.8,6.4,2.8,14.8,12,MID
+Zach Merrett,Essendon,24,12,5,29.8,16.4,13.4,7.0,6.4,0.1,7.2,6.2,2.4,15.2,13,MID
+Jordan Dawson,Adelaide,24,16,6,28.4,18.4,10.0,8.4,4.8,0.1,5.8,7.4,3.2,13.2,11,MID
+Andrew Brayshaw,Fremantle,24,10,4,29.6,16.8,12.8,7.2,5.8,0.1,7.4,6.4,2.2,14.4,12,MID
+Tim Taranto,Richmond,24,12,5,27.8,15.4,12.4,6.8,5.4,0.1,7.0,6.0,2.0,14.0,10,MID
+Isaac Heeney,Sydney,24,28,10,22.4,14.2,8.2,7.8,4.4,0.1,4.2,8.2,1.4,10.4,17,MID
+Toby Greene,GWS,22,30,12,18.4,12.2,6.2,5.8,3.8,0.1,3.2,8.8,0.8,8.2,14,FWD
+Josh Rachele,Adelaide,24,28,10,14.2,9.2,5.0,4.4,2.8,0.1,2.4,7.8,0.6,6.2,11,FWD
+Callum Ah Chee,Brisbane Lions,22,24,8,12.8,8.4,4.4,4.2,2.4,0.1,1.8,7.4,0.6,5.4,8,FWD
+Ben Brown,Melbourne,20,22,8,11.8,7.8,4.0,4.0,2.0,0.1,1.4,7.2,0.4,4.4,7,FWD
+Mitch Lewis,Hawthorn,22,36,14,13.4,9.4,4.0,5.2,2.2,0.1,1.6,8.0,0.6,5.0,12,FWD
+Darcy Moore,Collingwood,24,6,2,18.4,12.4,6.0,9.8,4.8,0.2,2.4,2.8,7.8,10.2,12,DEF
+Jake Lever,Melbourne,22,4,2,17.2,11.8,5.4,9.2,4.4,0.1,2.2,2.4,8.2,9.8,10,DEF
+Sam Taylor,GWS,24,2,2,16.8,11.2,5.6,8.8,4.2,0.1,2.0,2.2,7.8,9.2,8,DEF
+Nick Vlastuin,Richmond,20,4,2,15.4,10.4,5.0,8.4,3.8,0.1,1.8,2.0,7.4,8.8,6,DEF
+Tom Stewart,Geelong,22,8,4,20.8,14.2,6.6,10.4,4.6,0.1,3.2,3.8,8.4,11.4,14,DEF
+Rory Laird,Adelaide,24,10,4,22.4,15.2,7.2,9.2,5.2,0.1,4.8,5.2,6.8,12.4,16,DEF
+Jordan Ridley,Essendon,24,6,2,19.8,13.4,6.4,9.8,4.4,0.1,3.4,3.2,7.2,10.8,10,DEF
+Michael Voss,Brisbane Lions,22,4,2,16.4,11.2,5.2,8.4,4.0,0.1,2.2,2.4,7.2,9.4,8,DEF
+Alex Witherden,Western Bulldogs,24,8,2,21.2,14.8,6.4,9.4,4.8,0.1,4.2,4.8,6.8,11.8,11,DEF
+Caleb Serong,Fremantle,24,11,5,28.8,16.2,12.6,7.0,5.6,0.1,7.2,6.0,2.2,14.2,13,MID
+Noah Anderson,Gold Coast,24,14,6,27.4,15.4,12.0,6.6,5.4,0.1,6.8,5.8,2.0,13.8,11,MID
+Cameron Guthrie,Geelong,24,10,4,28.2,15.8,12.4,7.2,5.8,0.1,7.0,6.0,2.4,14.4,12,MID
+Jack Macrae,Western Bulldogs,20,10,4,29.4,16.2,13.2,7.4,5.8,0.1,6.4,5.8,2.6,14.8,11,MID
+Elliot Yeo,West Coast,18,8,4,22.4,13.2,9.2,6.4,4.8,0.1,5.2,4.8,2.8,12.2,7,MID
+Ryan Byrnes,St Kilda,24,12,5,24.8,14.2,10.6,6.2,5.2,0.1,5.8,5.4,2.2,12.8,9,MID
+Sam Flanders,Gold Coast,24,16,6,22.4,13.2,9.2,5.8,4.8,0.1,5.2,6.4,1.8,11.4,10,MID
+Connor Rozee,Port Adelaide,24,24,10,20.4,13.2,7.2,5.4,4.4,0.1,4.2,7.8,1.4,9.8,14,FWD
+Chad Warner,Sydney,24,18,6,22.8,14.2,8.6,6.2,4.8,0.1,5.2,6.8,1.8,11.4,14,MID
+Marcus Bontempelli,Western Bulldogs,24,20,8,26.8,15.4,11.4,6.8,5.4,0.1,6.2,6.4,2.0,13.2,15,MID
+Dustin Martin,Richmond,18,14,6,22.4,13.8,8.6,6.2,4.8,0.1,4.8,5.8,2.0,11.4,9,MID
